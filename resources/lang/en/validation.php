@@ -142,6 +142,16 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [        'minutes' => 'Current Mile Pace: Minute',
+        'seconds' => 'Current Mile Pace: Second',
+        'distance' => 'Distance',
+        'endurance' => 'Course Type',
+        'training' => 'Are you Training',
+        'currentmin' => 'Current Mile Pace: Minute',
+        'currentsec' => 'Current Mile Pace: Second',
+        'targetmin' => 'Target Mile Pace: Minute',
+        'targetsec' => 'Target Mile Pace: Second',
+        'racedate' => 'When is your Race'
+    ],
 
 ];

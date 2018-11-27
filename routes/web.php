@@ -11,33 +11,24 @@
 |
 */
 
-Route::get('/debug', function () {
+//welcome is the home or default page
+Route::get('/', 'TrainingController@welcome');
 
-    $debug = [
-        'Environment' => App::environment(),
-    ];
+//estimate routes to the estimate view
+Route::get('/estimate', 'TrainingController@estimate');
 
-    /*
-    The following commented out line will print your MySQL credentials.
-    Uncomment this line only if you're facing difficulties connecting to the
-    database and you need to confirm your credentials. When you're done
-    debugging, comment it back out so you don't accidentally leave it
-    running on your production server, making your credentials public.
-    */
-    #$debug['MySQL connection config'] = config('database.connections.mysql');
+//calculate performs the pace estimate calculation
+Route::get('/calc','TrainingController@calculate');
 
-    try {
-        $databases = DB::select('SHOW DATABASES;');
-        $debug['Database connection test'] = 'PASSED';
-        $debug['Databases'] = array_column($databases, 'Database');
-    } catch (Exception $e) {
-        $debug['Database connection test'] = 'FAILED: '.$e->getMessage();
-    }
+//planner routes to the plan view
+Route::get('/planner', 'TrainingController@planner');
 
-    dump($debug);
-});
+// plan calculates the goal pace for planned race time
+Route::get('/plan','TrainingController@plan');
 
+// tracker routes to the track view
+Route::get('/tracker','TrainingController@tracker');
 
-Route::get('/', function () {
+Route::fallback(function () {
     return view('welcome');
 });

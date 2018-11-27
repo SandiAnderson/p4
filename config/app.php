@@ -1,6 +1,21 @@
 <?php
 
 return [
+    'calcvalues' => [
+        'fivek' => '3.2',
+        'half' => '13.1',
+        'full' => '26.2',
+        'hill' => '.15.',
+        'elevate' => '.25',
+        'obstacle' => '.35',
+        'training' => '.25'
+    ],
+
+    'nav' => [
+        ['link' => '/', 'label' => 'Home', 'description' => ''],
+        ['link' => '/estimate', 'label' => 'Estimate', 'description' => 'Estimate your Race Finish time based on your your current pace'],
+        ['link' => '/planner', 'label' => 'Plan', 'description' => 'Plan your incremental training improvement to meet your target pace'],
+        ['link' => '/tracker', 'label' => 'Track', 'description' => 'Track your runs and see how you are doing against your goal'],    ],
 
     /*
     |--------------------------------------------------------------------------
