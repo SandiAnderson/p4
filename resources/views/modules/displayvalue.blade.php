@@ -1,6 +1,8 @@
 @if($type=='number')
     value='{{(isset($source)? session($source):'0')?? old($source,'0') }}'
 @elseif($type=='text')
+    value='{{ old($source, '') }}'
+@elseif($type=='date')
     value='{{ old($source, 'MM/DD/YYYY') }}'
 @elseif($type=='select')
     {{ old($source) == $value ? 'selected' : '' }}

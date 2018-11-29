@@ -46,10 +46,20 @@ h4 {
     background-repeat: no-repeat;
     background-position-y: center;
     background-size: 100%;
-    padding: 20px;
+    padding: 20px 20px 10px;
+}
+.nav2 {
+    height: 10px;
+    background-color: #280000;
+    padding: 10px;
+}
+.nav a {
+    padding-right: 10px;
+    color: #fffbdb;
 }
 
-.nav a {
+.nav2 a {
+    font-size: small;
     padding-right: 10px;
     color: #fffbdb;
 }

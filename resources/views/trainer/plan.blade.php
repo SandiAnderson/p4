@@ -25,7 +25,7 @@
             <div class='elForm'>
                 <label>When is your race?&nbsp;
                     <input type='text' name='racedate'
-                            @include('modules.displayvalue', ['type'=>'text', 'source'=>'racedate'])>
+                            @include('modules.displayvalue', ['type'=>'date', 'source'=>'racedate'])>
                 </label>
             </div>
 

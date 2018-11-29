@@ -2,7 +2,8 @@
 
 return [
     'calcvalues' => [
-        'fivek' => '3.2',
+        'fivek' => '3.1',
+        'tenk' => '6.2',
         'half' => '13.1',
         'full' => '26.2',
         'hill' => '.15.',
@@ -15,8 +16,13 @@ return [
         ['link' => '/', 'label' => 'Home', 'description' => ''],
         ['link' => '/estimate', 'label' => 'Estimate', 'description' => 'Estimate your Race Finish time based on your your current pace'],
         ['link' => '/planner', 'label' => 'Plan', 'description' => 'Plan your incremental training improvement to meet your target pace'],
-        ['link' => '/tracker', 'label' => 'Track', 'description' => 'Track your runs and see how you are doing against your goal'],    ],
+        ['link' => '/tracker', 'label' => 'Track', 'description' => 'Track your runs and see how you are doing against your goal']
+    ],
 
+    'track' => [
+        ['link' => '/tracker', 'label' => 'Add Run'],
+        ['link' => '/viewruns', 'label' => 'View Runs'],
+    ],
     /*
     |--------------------------------------------------------------------------
     | Application Name

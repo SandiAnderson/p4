@@ -151,7 +151,11 @@ return [
         'currentsec' => 'Current Mile Pace: Second',
         'targetmin' => 'Target Mile Pace: Minute',
         'targetsec' => 'Target Mile Pace: Second',
-        'racedate' => 'When is your Race'
+        'racedate' => 'When is your Race',
+        'rundate' => 'Run Date',
+        'runmin' => 'Run Pace: Minutes',
+        'runsec' => 'Run Pace: Seconds',
+        'rundistance' => 'Run Distance'
     ],
 
 ];

@@ -137,4 +137,28 @@ class TrainingController extends Controller
     {
         return view('trainer.track');
     }
+
+    public function trackrun(Request $request)
+    {
+        $request->validate([
+            'rundate' => 'bail|required|date|before:tomorrow',
+            'runmin' => 'required|numeric|min:1|max:60',
+            'runsec' => 'required|numeric|min:0|max:60',
+            'rundistance' => 'required'
+        ]);
+        return redirect('/tracker')->withInput();
+    }
+
+    public function searchusers(Request $request)
+    {
+        $request->validate([
+            'searchusers' => 'required'
+        ]);
+        return redirect('/viewruns')->withInput();
+    }
+
+    public function viewruns()
+    {
+        return view('trainer.viewruns');
+    }
 }

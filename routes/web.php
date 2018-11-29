@@ -29,6 +29,15 @@ Route::get('/plan','TrainingController@plan');
 // tracker routes to the track view
 Route::get('/tracker','TrainingController@tracker');
 
+//trackrun adds the run to the database
+Route::get('/trackrun','TrainingController@trackrun');
+
+//viewruns routes to viewruns view
+Route::get('/viewruns','TrainingController@viewruns');
+
+//searchusers finds users to view run history
+Route::get('/searchusers','TrainingController@searchusers');
+
 Route::fallback(function () {
     return view('welcome');
 });
