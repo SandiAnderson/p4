@@ -16,6 +16,12 @@ class CreateRunsTable extends Migration
         Schema::create('runs', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
+
+            $table->integer('user_id');
+            $table->date('run_date');
+            $table->float('run_distance');
+            $table->integer('pace_min');
+            $table->integer('pace_sec');
         });
     }
 

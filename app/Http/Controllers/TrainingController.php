@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Runs;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use phpDocumentor\Reflection\Types\Nullable;
@@ -146,19 +147,44 @@ class TrainingController extends Controller
             'runsec' => 'required|numeric|min:0|max:60',
             'rundistance' => 'required'
         ]);
-        return redirect('/tracker')->withInput();
+//need to add some string conversion utilities
+        $run = new Runs();
+        $run->run_date = '2018-12-05';
+        $run->pace_min = $request->input('runmin');
+        $run->pace_sec = $request->input('runsec');
+        $run->run_distance = '3.0';
+        $run->user_id = '1';
+        $run->save();
+
+        return redirect('/tracker')->withInput()->with([
+            'alert' => 'Your book was added.'
+        ]);
     }
 
+    //result of user navigating to the view runs page
+    public function searchruns()
+    {
+        return view('trainer.searchruns');
+    }
+
+    //result of user submitting search users form
+    //return all the users run history
     public function searchusers(Request $request)
     {
         $request->validate([
             'searchusers' => 'required'
         ]);
-        return redirect('/viewruns')->withInput();
+        $id = $request->searchusers;
+        return redirect('/viewruns/{$id}')->withInput();
     }
 
-    public function viewruns()
+    public function viewruns($id)
     {
-        return view('trainer.viewruns');
+        $searchResults = Runs::where('user_id', '=', $id)->get();
+        return view('trainer.viewruns')->with([
+            'searchResults' => $searchResults
+        ]);
     }
+
+
 }

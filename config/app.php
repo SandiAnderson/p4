@@ -21,7 +21,7 @@ return [
 
     'track' => [
         ['link' => '/tracker', 'label' => 'Add Run'],
-        ['link' => '/viewruns', 'label' => 'View Runs'],
+        ['link' => '/searchruns', 'label' => 'View Runs'],
     ],
     /*
     |--------------------------------------------------------------------------
