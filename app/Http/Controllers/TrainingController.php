@@ -169,19 +169,16 @@ class TrainingController extends Controller
 
     //result of user submitting search users form
     //return all the users run history
-    public function searchusers(Request $request)
+    public function viewruns(Request $request)
     {
         $request->validate([
             'searchusers' => 'required'
         ]);
         $id = $request->searchusers;
-        return redirect('/viewruns/{$id}')->withInput();
-    }
 
-    public function viewruns($id)
-    {
         $searchResults = Runs::where('user_id', '=', $id)->get();
         return view('trainer.viewruns')->with([
+            'id'=>$id,
             'searchResults' => $searchResults
         ]);
     }

@@ -8,7 +8,7 @@
 
 
     <div class='defForm'>
-        <form method='get' action='/searchusers'>
+        <form method='get' action='/viewruns'>
             <div class='elForm'>
                 <label>Search Users&nbsp;
                     <input type='text' name='searchusers'

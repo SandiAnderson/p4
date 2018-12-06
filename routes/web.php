@@ -36,10 +36,10 @@ Route::get('/trackrun','TrainingController@trackrun');
 Route::get('/searchruns','TrainingController@searchruns');
 
 //searchusers finds users to view run history from view runs page
-Route::get('/searchusers','TrainingController@searchusers');
+//Route::get('/searchusers','TrainingController@searchusers');
 
 //searchruns routes to viewruns view with search page
-Route::get('/viewruns/{id}','TrainingController@viewruns');
+Route::get('/viewruns/','TrainingController@viewruns');
 
 Route::fallback(function () {
     return view('welcome');
