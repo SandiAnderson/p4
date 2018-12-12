@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Runs;
+Use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use phpDocumentor\Reflection\Types\Nullable;
+use Illuminate\Support\Facades\Auth;
 
 
 class TrainingController extends Controller
@@ -136,7 +138,8 @@ class TrainingController extends Controller
 
     public function tracker()
     {
-        return view('trainer.track');
+        $user = Auth::user();
+        return view('trainer.track')->with(['user'=>$user]);
     }
 
     public function trackrun(Request $request)
@@ -149,11 +152,12 @@ class TrainingController extends Controller
         ]);
 //need to add some string conversion utilities
         $run = new Runs();
+        $id = Auth::id();
         $run->run_date = '2018-12-05';
         $run->pace_min = $request->input('runmin');
         $run->pace_sec = $request->input('runsec');
         $run->run_distance = '3.0';
-        $run->user_id = '1';
+        $run->user_id = $id;
         $run->save();
 
         return redirect('/tracker')->withInput()->with([
@@ -162,26 +166,36 @@ class TrainingController extends Controller
     }
 
     //result of user navigating to the view runs page
-    public function searchruns()
-    {
-        return view('trainer.searchruns');
-    }
+    //public function searchruns()
+    //{
+    //    return view('trainer.searchuserruns');
+    //}
 
     //result of user submitting search users form
     //return all the users run history
-    public function viewruns(Request $request)
+/*    public function searchuserruns(Request $request)
     {
         $request->validate([
             'searchusers' => 'required'
         ]);
-        $id = $request->searchusers;
+        $id = Auth::id();
 
         $searchResults = Runs::where('user_id', '=', $id)->get();
         return view('trainer.viewruns')->with([
             'id'=>$id,
             'searchResults' => $searchResults
         ]);
-    }
+    }*/
 
+       public function viewruns()
+        {
+            $id = Auth::id();
+
+            $searchResults = Runs::where('user_id', '=', $id)->get();
+            return view('trainer.viewruns')->with([
+                'id'=>$id,
+                'searchResults' => $searchResults
+            ]);
+        }
 
 }

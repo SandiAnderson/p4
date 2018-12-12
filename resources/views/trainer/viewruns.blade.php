@@ -27,6 +27,4 @@
         @endif
 
     </table>
-<p>{{$searchResults}}</p>
-<p>id: {{$id}}</p>
 @endsection

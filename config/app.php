@@ -16,12 +16,20 @@ return [
         ['link' => '/', 'label' => 'Home', 'description' => ''],
         ['link' => '/estimate', 'label' => 'Estimate', 'description' => 'Estimate your Race Finish time based on your your current pace'],
         ['link' => '/planner', 'label' => 'Plan', 'description' => 'Plan your incremental training improvement to meet your target pace'],
+    ],
+
+    'authnav' => [
         ['link' => '/tracker', 'label' => 'Track', 'description' => 'Track your runs and see how you are doing against your goal']
+    ],
+
+    'home' => [
+        ['link' => '/login', 'label' => 'Login'],
+        ['link' => '/register', 'label' => 'Register'],
     ],
 
     'track' => [
         ['link' => '/tracker', 'label' => 'Add Run'],
-        ['link' => '/searchruns', 'label' => 'View Runs'],
+        ['link' => '/viewruns', 'label' => 'View Runs'],
     ],
     /*
     |--------------------------------------------------------------------------
@@ -193,7 +201,7 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-
+        App\Providers\ViewServiceProvider::class,
     ],
 
     /*

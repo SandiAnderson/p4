@@ -27,20 +27,29 @@ Route::get('/planner', 'TrainingController@planner');
 Route::get('/plan','TrainingController@plan');
 
 // tracker routes to the track view to add a run
-Route::get('/tracker','TrainingController@tracker');
+
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/tracker', 'TrainingController@tracker');
+//Route::get('/tracker', [
+//    'middleware' => 'auth',
+//    'uses' => 'TrainingController@tracker'
+//]);
 
 //trackrun adds the run to the database from form input
-Route::get('/trackrun','TrainingController@trackrun');
+    Route::get('/trackrun', 'TrainingController@trackrun');
 
 //searchruns routes to viewruns view with search page
-Route::get('/searchruns','TrainingController@searchruns');
+    Route::get('/viewruns', 'TrainingController@viewruns');
 
 //searchusers finds users to view run history from view runs page
 //Route::get('/searchusers','TrainingController@searchusers');
 
-//searchruns routes to viewruns view with search page
-Route::get('/viewruns/','TrainingController@viewruns');
+//searchruns routes to searchuserruns view with search page
+//    Route::get('/viewruns/', 'TrainingController@viewruns');
+});
 
 Route::fallback(function () {
     return view('welcome');
 });
+Auth::routes();
+
