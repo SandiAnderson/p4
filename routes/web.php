@@ -41,15 +41,27 @@ Route::group(['middleware' => 'auth'], function () {
 //searchruns routes to viewruns view with search page
     Route::get('/viewruns', 'TrainingController@viewruns');
 
-//searchusers finds users to view run history from view runs page
+//edit routes to edit view with the current Run to edit
+    Route::get('{id}/editrun', 'TrainingController@editrun');
+
+//edit routes to edit view with the current Run to edit
+    Route::put('{id}/updaterun/', 'TrainingController@updaterun');
+
+//delete routes to delete view with the current Run
+    Route::get('{id}/deleterun', 'TrainingController@deleterun');
+
+//destroy routes delete the current Run
+    Route::delete('{id}/destroyrun/', 'TrainingController@destroyrun');
+
+    //searchusers finds users to view run history from view runs page
 //Route::get('/searchusers','TrainingController@searchusers');
 
 //searchruns routes to searchuserruns view with search page
 //    Route::get('/viewruns/', 'TrainingController@viewruns');
 });
 
-Route::fallback(function () {
-    return view('welcome');
-});
+//Route::fallback(function () {
+//    return view('welcome');
+//});
 Auth::routes();
 

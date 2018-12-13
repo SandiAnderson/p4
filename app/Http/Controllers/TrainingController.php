@@ -79,7 +79,7 @@ class TrainingController extends Controller
 
         //Store current pace in session for use in planner
         session(['minutes' => $minutes]);
-        session (['seconds' => $seconds]);
+        session(['seconds' => $seconds]);
 
         #update estimator with the estimated time using flash data
         return redirect('/estimate')->withInput()->with([
@@ -120,10 +120,10 @@ class TrainingController extends Controller
 
         //get the number of weeks
         $today = today();
-        $goal = $today -> diffInWeeks($racedate);
+        $goal = $today->diffInWeeks($racedate);
 
         //divide improvement pace by number of weeks
-        $incimprove = $improve/$goal;
+        $incimprove = $improve / $goal;
         $fincimprove = sprintf('%02d:%02d', floor($incimprove / 60) % 60, ($incimprove % 60));
 
         #update planner with the improvement calculation
@@ -139,7 +139,7 @@ class TrainingController extends Controller
     public function tracker()
     {
         $user = Auth::user();
-        return view('trainer.track')->with(['user'=>$user]);
+        return view('trainer.track')->with(['user' => $user]);
     }
 
     public function trackrun(Request $request)
@@ -173,22 +173,11 @@ class TrainingController extends Controller
 
     //result of user submitting search users form
     //return all the users run history
-/*    public function searchuserruns(Request $request)
-    {
-        $request->validate([
-            'searchusers' => 'required'
-        ]);
-        $id = Auth::id();
-
-        $searchResults = Runs::where('user_id', '=', $id)->get();
-        return view('trainer.viewruns')->with([
-            'id'=>$id,
-            'searchResults' => $searchResults
-        ]);
-    }*/
-
-       public function viewruns()
+    /*    public function searchuserruns(Request $request)
         {
+            $request->validate([
+                'searchusers' => 'required'
+            ]);
             $id = Auth::id();
 
             $searchResults = Runs::where('user_id', '=', $id)->get();
@@ -196,6 +185,81 @@ class TrainingController extends Controller
                 'id'=>$id,
                 'searchResults' => $searchResults
             ]);
+        }*/
+
+    public function viewruns()
+    {
+        $id = Auth::id();
+
+        $searchResults = Runs::where('user_id', '=', $id)->get();
+        return view('trainer.viewruns')->with([
+            'id' => $id,
+            'searchResults' => $searchResults
+        ]);
+    }
+
+
+    public function editrun($id = null)
+    {
+        $run = Runs::find($id);
+
+        if (!$run) {
+            return redirect('/tracker')->with([
+                'alert' => 'Run not found.'
+            ]);
+        }
+        return view('trainer.editrun')->with([
+            'id' => $id,
+            'run' => $run
+        ]);
+    }
+
+    public function updaterun(Request $request, $id)
+    {
+            $this->validate($request, [
+                'rundate' => 'bail|required|date|before:tomorrow',
+                'runmin' => 'required|numeric|min:1|max:60',
+                'runsec' => 'required|numeric|min:0|max:60',
+                'rundistance' => 'required'
+            ]);
+
+
+            $run = Runs::find($id);
+
+            $run->run_date = $request->input('rundate');
+            $run->pace_min = $request->input('runmin');
+            $run->pace_sec = $request->input('runsec');
+            $run->run_distance = $request->input('rundistance');
+            $run->save();
+
+            return redirect('/viewruns')->with([
+                'alert' => 'Your changes were saved.'
+            ]);
         }
 
+    public function deleterun($id = null)
+    {
+        $run = Runs::find($id);
+
+        if (!$run) {
+            return redirect('/viewruns')->with([
+                'alert' => 'Run not found.'
+            ]);
+        }
+        return view('trainer.deleterun')->with([
+            'id' => $id,
+            'run' => $run
+        ]);
+    }
+
+    public function destroyrun($id)
+    {
+        $run = Runs::find($id);
+
+        $run->delete();
+
+        return redirect('/viewruns')->with([
+            'alert' => 'Your run was deleted.'
+        ]);
+    }
 }

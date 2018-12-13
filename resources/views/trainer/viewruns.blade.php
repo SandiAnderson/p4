@@ -13,6 +13,8 @@
             <td>Run Distance</td>
             <td>Run Pace: Min</td>
             <td>Run Pace: Sec</td>
+            <td></td>
+            <td></td>
         </tr>
         </thead>
         @if($searchResults)
@@ -22,6 +24,8 @@
                     <td>{{$results->run_distance}}</td>
                     <td>{{$results->pace_min}}</td>
                     <td>{{$results->pace_sec}}</td>
+                    <td><a href='/{{$results->id}}/editrun'>Edit</a></td>
+                    <td><a href='/{{$results->id}}/deleterun'>Delete</a></td>
                 </tr>
             @endforeach
         @endif
