@@ -2,6 +2,7 @@
 
 @section('content')
     <div class='defForm'>
+        <h2>Training Planner</h2>
         <h4>Use this planner to estimate your target incremental improvement each
             week in order to meet your race pace time goal.</h4>
         <p><span class='req'>*All values are required.</span></p>

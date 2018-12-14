@@ -10,18 +10,16 @@
         <form method='post' action='/joinchallenge'>
             {{ method_field('put') }}
             {{ csrf_field() }}
-            <h4>All Challenges</h4>
+            <h2>All Challenges</h2>
 
             <table>
                 <thead>
                 <tr>
                     <td></td>
                     <td>Challenge Name</td>
-                    <td>Distance</td>
-                    <td>Target Pace<br>
-                        Min:sec
-                    </td>
-                    <td>By Date</td>
+                    <td>Start Date</td>
+                    <td>End Date</td>
+                    <td>Description</td>
                 </tr>
                 </thead>
                 @if($allchallenges)
@@ -31,10 +29,10 @@
                                        value='{{$challenge->id}}'
                                        {{(in_array($challenge->id, $userchallenges))?'checked' : ''}}
                                 ></td>
-                            <td>{{$challenge->challenge_name}}</td>
-                            <td>{{$challenge->distance}}</td>
-                            <td>{{$challenge->pace_min}}:{{$challenge->pace_sec}}</td>
-                            <td>{{$challenge->by_date}}</td>
+                            <td>{{$challenge->name}}</td>
+                            <td>{{$challenge->start_date}}</td>
+                            <td>{{$challenge->end_date}}</td>
+                            <td>{{$challenge->description}}</td>
                         </tr>
                     @endforeach
                 @endif

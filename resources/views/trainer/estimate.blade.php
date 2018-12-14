@@ -2,6 +2,7 @@
 
 @section('content')
     <div class='defForm'>
+        <h2>Estimate Race Time</h2>
         <h4>Use this calculator to estimate your race finish time based
             on your current pace and the type of race you will be running.</h4>
         <p><span class='req'>*All values are required.</span></p>

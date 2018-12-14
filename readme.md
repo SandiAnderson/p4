@@ -3,40 +3,43 @@
 + Production URL: <http://p4.dcyc.club>
 
 ## Database
-*The following is example info taken from Foobooks; delete and replace with your own info.*
 
 Primary tables:
-  + `books`
-  + `authors`
-  + `tags`
   + `users`
+  + `runs`
+  + `challenges`
   
 Pivot table(s):
-  + `book_tag`
+  + `challenge_user`
 
 
 ## CRUD
-*Describe what action I need take in order to see an example of all 4 CRUD operations in your app. I've filled this out with examples from the Foobooks app - delete this and replace with your own info. If one operation is performed multiple times (e.g. Read), you only need to provide 1 example.*
+To see the CRUD operations, you will need to log-in.
+Once logged in all CRUD operations can be performed using the 'Track' functionality
 
 __Create__
-  + Visit <http://p4.foobooks.me/books/create>
-  + Fill out form
-  + Click *Add new book*
-  + Observe confirmation message
+  + Default 'Track view' <http://p4.dcyc.club/tracker> will allow you to add a run
+  + Enter Run information, and submit the form
+  + You should be directed to the 'View Runs' page with the new run added
   
 __Read__
-  + Visit <http://p4.foobooks.me/books> see a listing of all books
+  + Track > View Runs will let you view all of the logged in Users Runs
+  + <http://p4.dcyc.club/viewruns>
   
 __Update__
-  + Visit <http://p4.foobooks.me/books>; choose the Edit button next to one of the books
-  + Make some edit to form
-  + Click *Save changes*
-  + Observe confirmation message
+  + From Track > View Runs, select a run to delete and click the Delete Link
+  + <http://p4.dcyc.club/viewruns>
+  + Edit Run information, and submit the form
+  + You should be directed to the 'View Runs' page with the new run edited
   
 __Delete__
-  + Visit <http://p4.foobooks.me/books>; choose the Delete button next to one of the books
-  + Confirm deletion
-  + Observe confirmation message
+  + From Track > View Runs, select a run to edit and click the Edit Link
+  + <http://p4.dcyc.club/viewruns>
+  + Click 'Delete Run' Button
+  + You should be directed to the 'View Runs' page with the new run deleted
+
+## Pivot Tables
+  + Pivot Table functionality can be found under Challenges
 
 ## Outside resources
 + <https://stackoverflow.com/questions/32475892/reflectionexception-class-classname-does-not-exist-laravel>

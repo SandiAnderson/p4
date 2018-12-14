@@ -16,11 +16,10 @@ class CreateChallengesTable extends Migration
         Schema::create('challenges', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
-            $table->string('challenge_name');
-            $table->string('distance');
-            $table->integer('pace_min');
-            $table->integer('pace_sec');
-            $table->date('by_date');
+            $table->string('name', 30);
+            $table->string('description',100);
+            $table->date('start_date');
+            $table->date('end_date');
         });
     }
 

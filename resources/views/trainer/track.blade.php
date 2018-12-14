@@ -5,6 +5,7 @@
         @include('layouts.trackheader')
     </section>
     <div class='defForm'>
+        <h2>Track Your Runs</h2>
         <h4>{{ $user->name }}, Use the tracker to log your runs and track your incremental improvement each
             week in order to meet your race pace goal.</h4>
 

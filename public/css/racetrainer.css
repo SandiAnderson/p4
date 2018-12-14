@@ -17,9 +17,9 @@ h1 {
 
 h2 {
     font-size: 125%;
-    color: #fffbdb;
     font-weight: bolder;
 }
+
 h4 {
     font-size: 100%;
     font-weight: normal;
@@ -102,4 +102,9 @@ table, th, td {
     font-size: 90%;
     border: 1px solid #5d561b;
     padding: 2px;
+}
+
+thead{
+    font-weight: bolder;
+    background: #fffbdb;
 }

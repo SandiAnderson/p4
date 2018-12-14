@@ -6,7 +6,7 @@
     </section>
 
     <div class='defForm'>
-        <h4>Login</h4>
+        <h2>Login</h2>
             Don't have an account? <a href='/register'>Register here...</a>
 
         <form method="POST" action="{{ route('login') }}">

@@ -5,6 +5,7 @@
         @include('layouts.trackheader')
     </section>
     <div class='defForm'>
+        <h2>Delete Run?</h2>
         <h4>Are you sure you want to delete the following run:</h4>
         <form method='POST' action='/{{$id}}/destroyrun'>
             {{ method_field('delete') }}

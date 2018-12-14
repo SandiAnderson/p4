@@ -161,32 +161,9 @@ class TrainingController extends Controller
         $run->user_id = $id;
         $run->save();
 
-        return redirect('/tracker')->withInput()->with([
-            'alert' => 'Your book was added.'
-        ]);
+        return redirect('/viewruns');
     }
 
-    //result of user navigating to the view runs page
-    //public function searchruns()
-    //{
-    //    return view('trainer.searchuserruns');
-    //}
-
-    //result of user submitting search users form
-    //return all the users run history
-    /*    public function searchuserruns(Request $request)
-        {
-            $request->validate([
-                'searchusers' => 'required'
-            ]);
-            $id = Auth::id();
-
-            $searchResults = Runs::where('user_id', '=', $id)->get();
-            return view('trainer.viewruns')->with([
-                'id'=>$id,
-                'searchResults' => $searchResults
-            ]);
-        }*/
 
     public function viewruns()
     {

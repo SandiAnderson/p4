@@ -15,15 +15,15 @@ class ChallengeUserTableSeeder extends Seeder
     {
         $challenges = [
             '5k by 2019' => ['Jill Harvard'],
-            '10k by March' => ['Jamal Harvard', 'Jill Harvard'],
-            'Faster 10K by March' => ['Jamal Harvard']
+            '10k by Feb' => ['Jamal Harvard', 'Jill Harvard'],
+            'Improve Current Pace' => ['Jamal Harvard']
         ];
 
         # Now loop through the above array, creating a new pivot for each challenge to user
         foreach ($challenges as $name => $users) {
 
             # First get the challenge
-            $challenge = Challenge::where('challenge_name', 'like', $name)->first();
+            $challenge = Challenge::where('name', 'like', $name)->first();
 
             # Now loop through each user for this challenge, adding the pivot
             foreach ($users as $username) {

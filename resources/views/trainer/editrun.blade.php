@@ -5,6 +5,7 @@
         @include('layouts.trackheader')
     </section>
     <div class='defForm'>
+        <h2>Edit Run</h2>
         <h4>Edit your previously logged runs.</h4>
         <p><span class='req'>*All values are required.</span></p>
         <form method='POST' action='/{{$id}}/updaterun'>
@@ -21,7 +22,7 @@
                 <label>Seconds <input type='number' name='runsec' min='0' max='60' size='2' value='{{$run->pace_sec}}'>
                 </label></div>
             <div class='elForm'>
-                <label>Distance:  <input type='number' name='rundistance' size='4'  min='0' max='60' value='{{$run->run_distance}}'>
+                <label>Distance:  <input type='text' name='rundistance' size='4'  min='0' max='60' value='{{$run->run_distance}}'>
                 </label></div>
 
             <div class='elForm'>

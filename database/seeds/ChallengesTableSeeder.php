@@ -13,9 +13,9 @@ class ChallengesTableSeeder extends Seeder
     public function run()
     {
         $challenges = [
-            ['5k by 2019', '3.1', '8', '0', '2018-12-31'],
-            ['10k by March', '6.2', '9', '0', '2019-03-01'],
-            ['Faster 10K by March', '6.2', '8', '30', '2019-04-01'],
+            ['5k by 2019', 'Beginning runners. Complete a 5k by 1/1/2019.', '2018-12-01', '2018-12-31'],
+            ['10k by Feb', 'Complete a 10K Run by Feb. 1 2019', '2019-1-1', '2019-01-31'],
+            ['Improve Current Pace', 'Improve your current pace by 30 seconds on a 5K', '2019-01-01', '2019-01-31'],
         ];
         $count = count($challenges);
 
@@ -24,11 +24,10 @@ class ChallengesTableSeeder extends Seeder
 
             $challenge->created_at = Carbon\Carbon::now()->subDays($count)->toDateTimeString();
             $challenge->updated_at = Carbon\Carbon::now()->subDays($count)->toDateTimeString();
-            $challenge->challenge_name = $cData[0];
-            $challenge->distance = $cData[1];
-            $challenge->pace_min = $cData[2];
-            $challenge->pace_sec = $cData[3];
-            $challenge->by_date = $cData[4];
+            $challenge->name = $cData[0];
+            $challenge->description = $cData[1];
+            $challenge->start_date = $cData[2];
+            $challenge->end_date = $cData[3];
 
             $challenge->save();
             $count--;
