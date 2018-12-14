@@ -19,7 +19,8 @@ return [
     ],
 
     'authnav' => [
-        ['link' => '/tracker', 'label' => 'Track', 'description' => 'Track your runs and see how you are doing against your goal']
+        ['link' => '/tracker', 'label' => 'Track', 'description' => 'Track your runs and see how you are doing against your goal'],
+        ['link' => '/challenge', 'label' => 'Challenges', 'description' => 'Join a challenge with other runners']
     ],
 
     'home' => [
@@ -31,6 +32,11 @@ return [
         ['link' => '/tracker', 'label' => 'Add Run'],
         ['link' => '/viewruns', 'label' => 'View Runs'],
     ],
+    'challenge' => [
+        ['link' => '/challenge', 'label' => 'All Challenges'],
+        ['link' => '/mychallenge', 'label' => 'My Challenges'],
+    ],
+
     /*
     |--------------------------------------------------------------------------
     | Application Name

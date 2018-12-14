@@ -18,6 +18,7 @@ h1 {
 h2 {
     font-size: 125%;
     color: #fffbdb;
+    font-weight: bolder;
 }
 h4 {
     font-size: 100%;
@@ -91,4 +92,14 @@ h4 {
     padding: 10px;
     margin: 10px;
     background-color: #fffbdb;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+table, th, td {
+    font-size: 90%;
+    border: 1px solid #5d561b;
+    padding: 2px;
 }

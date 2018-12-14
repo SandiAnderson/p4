@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Challenge;
 use App\Runs;
 Use App\User;
 use Illuminate\Http\Request;
@@ -216,26 +217,26 @@ class TrainingController extends Controller
 
     public function updaterun(Request $request, $id)
     {
-            $this->validate($request, [
-                'rundate' => 'bail|required|date|before:tomorrow',
-                'runmin' => 'required|numeric|min:1|max:60',
-                'runsec' => 'required|numeric|min:0|max:60',
-                'rundistance' => 'required'
-            ]);
+        $this->validate($request, [
+            'rundate' => 'bail|required|date|before:tomorrow',
+            'runmin' => 'required|numeric|min:1|max:60',
+            'runsec' => 'required|numeric|min:0|max:60',
+            'rundistance' => 'required'
+        ]);
 
 
-            $run = Runs::find($id);
+        $run = Runs::find($id);
 
-            $run->run_date = $request->input('rundate');
-            $run->pace_min = $request->input('runmin');
-            $run->pace_sec = $request->input('runsec');
-            $run->run_distance = $request->input('rundistance');
-            $run->save();
+        $run->run_date = $request->input('rundate');
+        $run->pace_min = $request->input('runmin');
+        $run->pace_sec = $request->input('runsec');
+        $run->run_distance = $request->input('rundistance');
+        $run->save();
 
-            return redirect('/viewruns')->with([
-                'alert' => 'Your changes were saved.'
-            ]);
-        }
+        return redirect('/viewruns')->with([
+            'alert' => 'Your changes were saved.'
+        ]);
+    }
 
     public function deleterun($id = null)
     {
@@ -261,5 +262,41 @@ class TrainingController extends Controller
         return redirect('/viewruns')->with([
             'alert' => 'Your run was deleted.'
         ]);
+    }
+
+
+    public function viewchallenge()
+    {
+        $id = Auth::id();
+        $allchallenges = Challenge::get();
+        $user = User::with('challenges')->find($id);
+        $challenges = $user->challenges->pluck('id')->toArray();
+        //dd($challenges);
+        return view('trainer.challenge')->with([
+            'allchallenges' => $allchallenges,
+            'userid'=>$id,
+            'userchallenges'=>$challenges,
+        ]);
+    }
+
+    public function mychallenge()
+    {
+        $id = Auth::id();
+        $user = User::with('challenges')->find($id);
+        return view('trainer.mychallenge')->with([
+            'user' => $user
+        ]);
+
+    }
+    public function joinchallenge(Request $request)
+    {
+        $id = Auth::id();
+        $user = User::with('challenges')->find($id);
+        $user->challenges()->sync($request->challenges);
+        $user = User::with('challenges')->find($id);
+        return view('trainer.mychallenge')->with([
+            'user' => $user
+        ]);
+
     }
 }

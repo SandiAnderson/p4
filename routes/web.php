@@ -53,11 +53,23 @@ Route::group(['middleware' => 'auth'], function () {
 //destroy routes delete the current Run
     Route::delete('{id}/destroyrun/', 'TrainingController@destroyrun');
 
+
+//View Challenges displays all challenges
+    Route::get('/challenge', 'TrainingController@viewchallenge');
+
+//View users challenges
+    Route::get('/mychallenge', 'TrainingController@mychallenge');
+
+//Allow user to join challenges
+    Route::put('/joinchallenge', 'TrainingController@joinchallenge');
+
     //searchusers finds users to view run history from view runs page
 //Route::get('/searchusers','TrainingController@searchusers');
 
 //searchruns routes to searchuserruns view with search page
 //    Route::get('/viewruns/', 'TrainingController@viewruns');
+
+
 });
 
 //Route::fallback(function () {
