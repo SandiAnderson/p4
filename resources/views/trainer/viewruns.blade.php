@@ -14,8 +14,8 @@
             <tr>
                 <td>Run Date</td>
                 <td>Run Distance</td>
-                <td>Run Pace:<br>
-                        Min/Sec</td>
+                <td>Run Pace<br>
+                        Min:Sec</td>
                 <td></td>
                 <td></td>
             </tr>
@@ -25,8 +25,7 @@
                     <tr>
                         <td>{{$results->run_date}}</td>
                         <td>{{$results->run_distance}}</td>
-                        <td>{{$results->pace_min}}/
-                            {{$results->pace_sec}}</td>
+                        <td>{{$results->pace_min}}:{{$results->pace_sec}}</td>
                         <td><a href='/{{$results->id}}/editrun'>Edit</a></td>
                         <td><a href='/{{$results->id}}/deleterun'>Delete</a></td>
                     </tr>

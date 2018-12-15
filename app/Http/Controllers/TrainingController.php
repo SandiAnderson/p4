@@ -151,13 +151,19 @@ class TrainingController extends Controller
             'runsec' => 'required|numeric|min:0|max:60',
             'rundistance' => 'required'
         ]);
-//need to add some string conversion utilities
+
         $run = new Runs();
+        //get users Id
         $id = Auth::id();
-        $run->run_date = '2018-12-05';
+
+        //format the date
+        $requestdate = date_create($request->input('rundate'));
+        $rundate = date_format($requestdate,'Y-m-d');
+
+        $run->run_date = $rundate;
         $run->pace_min = $request->input('runmin');
         $run->pace_sec = $request->input('runsec');
-        $run->run_distance = '3.0';
+        $run->run_distance = $request->input('rundistance');
         $run->user_id = $id;
         $run->save();
 

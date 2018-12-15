@@ -13,7 +13,7 @@
         <form method='get' action='/trackrun'>
 
             <div class='elForm'>
-                <label>Run Date?&nbsp;
+                <label>Run Date:&nbsp;
                     <input type='text' name='rundate'
                             @include('modules.displayvalue', ['type'=>'date', 'source'=>'rundate'])>
                 </label>
@@ -26,24 +26,10 @@
                             @include('modules.displayvalue', ['type'=>'number', 'source'=>'runsec'])>
                 </label></div>
             <div class='elForm'><label>Distance:
-                    <select name='rundistance'>
-                        <option value=''>
-                            Select One
-                        </option>
-                        <option value='fivek' @include('modules.displayvalue', ['type'=>'select', 'source'=>'rundistance', 'value'=>'fivek'])>
-                            5K
-                        </option>
-                        <option value='tenk' @include('modules.displayvalue', ['type'=>'select', 'source'=>'rundistance', 'value'=>'fivek'])>
-                            10K
-                        </option>
-                        <option value='half' @include('modules.displayvalue', ['type'=>'select', 'source'=>'rundistance', 'value'=>'half'])>
-                            Half Marathon
-                        </option>
-                        <option value='full' @include('modules.displayvalue', ['type'=>'select', 'source'=>'rundistance', 'value'=>'full'])>
-                            Full Marathon
-                        </option>
-                    </select>
-                </label></div>
+                        <input type='text' name='rundistance' size='5'
+                                @include('modules.displayvalue', ['type'=>'text', 'source'=>'rundistance'])>
+                    </label>
+            </div>
 
             <div class='elForm'>
                 <input type='submit' value='Track This Run!'>

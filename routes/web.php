@@ -63,12 +63,6 @@ Route::group(['middleware' => 'auth'], function () {
 //Allow user to join challenges
     Route::put('/joinchallenge', 'TrainingController@joinchallenge');
 
-    //searchusers finds users to view run history from view runs page
-//Route::get('/searchusers','TrainingController@searchusers');
-
-//searchruns routes to searchuserruns view with search page
-//    Route::get('/viewruns/', 'TrainingController@viewruns');
-
 
 });
 
