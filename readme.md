@@ -27,25 +27,26 @@ __Read__
   + <http://p4.dcyc.club/viewruns>
   
 __Update__
-  + From Track > View Runs, select a run to delete and click the Delete Link
+  + From Track > View Runs, select a run to edit and click the Edit Link
   + <http://p4.dcyc.club/viewruns>
   + Edit Run information, and submit the form
   + You should be directed to the 'View Runs' page with the new run edited
   
 __Delete__
-  + From Track > View Runs, select a run to edit and click the Edit Link
+  + From Track > View Runs, select a run to delete and click the Delete Link
   + <http://p4.dcyc.club/viewruns>
   + Click 'Delete Run' Button
   + You should be directed to the 'View Runs' page with the new run deleted
 
 ## Pivot Tables
-  + Pivot Table functionality can be found under Challenges
+  + Pivot Table functionality can be found under Challenges where users can join challenges or see previously joined challenges
 
 ## Outside resources
 + <https://stackoverflow.com/questions/32475892/reflectionexception-class-classname-does-not-exist-laravel>
  for reference on an issue with a class not found
 + Background image in Nav bar from https://www.pexels.com
 +  The following for general reference: http://php.net/, https://laravel.com/, https://www.w3schools.com/
++ php.net specific reference for date formatting: <http://php.net/manual/en/function.date.php>
 ## Code style divergences
 N/A
 

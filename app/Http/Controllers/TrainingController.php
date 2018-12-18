@@ -48,6 +48,8 @@ class TrainingController extends Controller
         #get the total time based on current pace
         if ($distance == 'fivek') {
             $d = config('app.calcvalues.fivek');
+        } elseif ($distance == 'tenk') {
+            $d = config('app.calcvalues.tenk');
         } elseif ($distance == 'half') {
             $d = config('app.calcvalues.half');
         } elseif ($distance == 'full') {
@@ -167,7 +169,9 @@ class TrainingController extends Controller
         $run->user_id = $id;
         $run->save();
 
-        return redirect('/viewruns');
+        return redirect('/viewruns')->with([
+            'alert'=>'Your Run has been added'
+        ]);
     }
 
 
@@ -276,9 +280,13 @@ class TrainingController extends Controller
         $id = Auth::id();
         $user = User::with('challenges')->find($id);
         $user->challenges()->sync($request->challenges);
+
+        // submit query again to reload the current challenges
         $user = User::with('challenges')->find($id);
-        return view('trainer.mychallenge')->with([
-            'user' => $user
+
+        return redirect('/mychallenge')->with([
+            'user' => $user,
+            'alert' => 'Your Challenges have been updated.'
         ]);
 
     }

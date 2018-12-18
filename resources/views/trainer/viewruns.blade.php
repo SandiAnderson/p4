@@ -34,4 +34,7 @@
 
         </table>
     </div>
+    @if(session('alert'))
+        <div class='time'>{{session('alert')}}</div>
+    @endif
 @endsection

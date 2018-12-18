@@ -4,8 +4,6 @@
     <section>
         @include('layouts.challengeheader')
     </section>
-    </div>
-
     <div class='defForm'>
         <form method='post' action='/joinchallenge'>
             {{ method_field('put') }}

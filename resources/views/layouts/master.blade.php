@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang='en'>
 <head>
-    <title>Running - Race Time Estimator</title>
+    <title>Running - Race Training Planner</title>
     <meta charset='utf-8'>
     <link href='/css/racetrainer.css' rel='stylesheet'>
 </head>
