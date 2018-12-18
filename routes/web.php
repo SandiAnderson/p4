@@ -66,8 +66,8 @@ Route::group(['middleware' => 'auth'], function () {
 
 });
 
-//Route::fallback(function () {
-//    return view('welcome');
-//});
+Route::fallback(function () {
+    return view('welcome');
+});
 Auth::routes();
 
