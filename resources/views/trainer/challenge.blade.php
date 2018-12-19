@@ -1,9 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
-    <section>
-        @include('layouts.challengeheader')
-    </section>
+    @include('layouts.challengeheader')
     <div class='defForm'>
         <form method='post' action='/joinchallenge'>
             {{ method_field('put') }}
@@ -25,7 +23,7 @@
                         <tr>
                             <td><input type='checkbox' name='challenges[]'
                                        value='{{$challenge->id}}'
-                                       {{(in_array($challenge->id, $userchallenges))?'checked' : ''}}
+                                        {{(in_array($challenge->id, $userchallenges))?'checked' : ''}}
                                 ></td>
                             <td>{{$challenge->name}}</td>
                             <td>{{$challenge->start_date}}</td>

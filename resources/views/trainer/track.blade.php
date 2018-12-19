@@ -1,9 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
-    <section>
-        @include('layouts.trackheader')
-    </section>
+    @include('layouts.trackheader')
     <div class='defForm'>
         <h2>Track Your Runs</h2>
         <h4>{{ $user->name }}, Use the tracker to log your runs and track your incremental improvement each
@@ -26,15 +24,15 @@
                             @include('modules.displayvalue', ['type'=>'number', 'source'=>'runsec'])>
                 </label></div>
             <div class='elForm'><label>Distance:
-                        <input type='text' name='rundistance' size='5'
-                                @include('modules.displayvalue', ['type'=>'text', 'source'=>'rundistance'])>
-                    </label>
+                    <input type='text' name='rundistance' size='5'
+                            @include('modules.displayvalue', ['type'=>'text', 'source'=>'rundistance'])>
+                </label>
             </div>
 
             <div class='elForm'>
                 <input type='submit' value='Track This Run!'>
             </div>
-    </form>
+        </form>
     </div>
     @if($errors->any())
         <div class='error'>
