@@ -1,10 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
-    <section>
-        @include('layouts.challengeheader')
-    </section>
-    </div>
+    @include('layouts.challengeheader')
     <div class='defForm'>
 
         <h2>My Challenges</h2>

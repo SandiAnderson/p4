@@ -2,9 +2,7 @@
 
 
 @section('content')
-    <section>
-        @include('layouts.trackheader')
-    </section>
+    @include('layouts.trackheader')
 
     <div class='defForm'>
         <h2>My Runs</h2>
@@ -15,7 +13,8 @@
                 <td>Run Date</td>
                 <td>Run Distance</td>
                 <td>Run Pace<br>
-                        Min:Sec</td>
+                    Min:Sec
+                </td>
                 <td></td>
                 <td></td>
             </tr>
