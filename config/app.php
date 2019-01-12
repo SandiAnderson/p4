@@ -28,6 +28,10 @@ return [
         ['link' => '/register', 'label' => 'Register'],
     ],
 
+    'authhome' => [
+        ['link' => '/profile', 'label' => 'My Profile'],
+    ],
+
     'track' => [
         ['link' => '/tracker', 'label' => 'Add Run'],
         ['link' => '/viewruns', 'label' => 'View Runs'],

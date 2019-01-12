@@ -28,6 +28,11 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    public function users()
+    {
+        return $this->belongsTo('App\Profile')->withTimestamps();
+    }
+
 
     public function challenges()
     {

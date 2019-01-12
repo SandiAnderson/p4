@@ -53,6 +53,16 @@
                 To make this pace by {{session('racedate')}},
                 you will need to improve by {{session('fincimprove')}} per
                 week.
+{{--
+                @if (Auth::check())
+                    <br>
+                    <a href='#' onClick='document.getElementById("setgoal").submit();'>Set as Profile Goal</a>
+                    <form method='POST' id='setgoal' action='/editprofile'>
+                        {{ csrf_field() }}
+                    </form>
+
+                @endif
+--}}
             </div>
         @endif
 
