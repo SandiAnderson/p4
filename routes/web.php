@@ -30,6 +30,8 @@ Route::get('/plan','TrainingController@plan');
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/tracker', 'TrackerController@tracker');
+
+//entire group requires auth - not single route
 //Route::get('/tracker', [
 //    'middleware' => 'auth',
 //    'uses' => 'TrainingController@tracker'
@@ -38,7 +40,10 @@ Route::group(['middleware' => 'auth'], function () {
 //trackrun adds the run to the database from form input
     Route::get('/trackrun', 'TrackerController@trackrun');
 
-//searchruns routes to viewruns view with search page
+//trackrun adds the run to the database from form input
+    Route::get('/viewprogress', 'TrackerController@viewprogress');
+
+    //searchruns routes to viewruns view with search page
     Route::get('/viewruns', 'TrackerController@viewruns');
 
 //edit routes to edit view with the current Run to edit

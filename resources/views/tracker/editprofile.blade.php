@@ -16,6 +16,35 @@
                     <input type='text' name='firstname' value=''>
                 </label>
             </div>
+            <div class='elForm'>
+                <label>Last Name:&nbsp;
+                    <input type='text' name='lastname' value=''>
+                </label>
+            </div>
+            <div class='elForm'><label>Gender:
+                    <select name='endurance'>
+                        <option value='' >
+                            Select One
+                        </option>
+                        <option value='F'>
+                            Female
+                        </option>
+                        <option value='M'>
+                            Male
+                        </option>
+                    </select>
+                </label></div>
+            <div class='elForm'>Current Mile Pace:&nbsp;
+                <label>Minutes <input type='number' name='minutes' min='0' max='60' size='2'>
+                </label>
+                <label>Seconds <input type='number' name='seconds' min='0' max='60' size='2'>
+                </label></div>
+
+            <div class='elForm'>Target Mile Pace:&nbsp;
+                <label>Minutes <input type='number' name='targetmin' min='0' max='60' size='2>'
+                </label>
+                <label>Seconds <input type='number' name='targetsec' min='0' max='60' size='2'>
+                </label></div>
 
             <div class='elForm'>
                 <input type='submit' value='Edit Profile'>

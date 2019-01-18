@@ -35,6 +35,7 @@ return [
     'track' => [
         ['link' => '/tracker', 'label' => 'Add Run'],
         ['link' => '/viewruns', 'label' => 'View Runs'],
+        ['link' => '/viewprogress', 'label' => 'View Progess'],
     ],
     'challenge' => [
         ['link' => '/challenge', 'label' => 'All Challenges'],

@@ -126,6 +126,13 @@ class TrackerController extends Controller
     }
 
 
+    public function viewprogress()
+    {
+        return view('tracker.viewprogress');
+
+    }
+
+
     public function showprofile()
     {
         $user = Auth::user();
