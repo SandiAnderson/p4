@@ -141,7 +141,6 @@ function drawFlow() {
         eS = parseInt(runs[r].pace_sec);
         eD = new Date(runs[r].date);
         linetoV = (current - ((eM * 60) + eS)) * vertInc;
-        alert(linetoV);
         linetoW = linetoW + parseInt(dateFns.differenceInDays(eD, sD)) * dIncWidth;
         ctx.lineTo(linetoW, linetoV);
         ctx.stroke();
