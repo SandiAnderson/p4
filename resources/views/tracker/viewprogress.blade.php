@@ -9,8 +9,8 @@
 
 
     <div class='defForm'>
-        <div id="cnvs" height="400" height="200" align="center" border="1">
-            <canvas id="c1" width="400" height="200" border="1">
+        <div id="cnvs" height="400" height="300" align="center" border="1">
+            <canvas id="c1" width="400" height="300" border="1">
             </canvas>
         </div>
 
