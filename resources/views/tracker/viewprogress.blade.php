@@ -6,7 +6,7 @@
         @include('layouts.trackheader')
     </section>
     <h2>View Progress</h2>
-
+    <p>Not Currently active</p>
 
     <div class='defForm'>
         <div id="cnvs" height="400" height="300" align="center" border="1">
